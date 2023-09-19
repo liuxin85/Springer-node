@@ -1,4 +1,4 @@
-import { getAll } from './model';
+import { getAll } from './model.js';
 
 export async function listAction(request, response) {
   const data = await getAll();
