@@ -1,3 +1,11 @@
 table {
   border-spacing: 0;
 }
+
+th {
+  background-color: black;
+  font-weight: bold;
+  color: lightgrey;
+  text-align: left;
+  padding: 5px;
+}
