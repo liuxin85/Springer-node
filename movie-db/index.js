@@ -1,10 +1,13 @@
 import express from 'express';
 import morgan from 'morgan';
+import { createWriteSteam } from 'fs';
 import { router as movieRouter } from './movie/index.js';
 
 const app = express();
 
-app.use(morgan('common', { immediate: true }));
+const accessLogStream = createWriteSteam('assess.log', { flags: 'a' });
+
+app.use(morgan('common', { immediate: true, steam: accessLogStream }));
 app.use('/movie', movieRouter);
 
 app.get('/', (request, response) => response.redirect('/movie'));
